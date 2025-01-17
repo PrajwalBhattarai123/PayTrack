@@ -1,0 +1,106 @@
+﻿@page "/"
+@using static PayTrack.Components.Layout.MainLayout
+@inject IJSRuntime JS
+@inject NavigationManager Navigation
+
+<div class="login-container">
+    <div class="login-card">
+        <h3>Login</h3>
+        <form>
+            <div class="form-group">
+                <label for="usernameInput">Enter Username</label>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Enter your username" @bind="username">
+                <small id="usernameHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="passwordInput">Enter Password</label>
+                <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password" @bind="password">
+            </div>
+
+            <div class="form-group">
+                <label for="currencyType">Select Currency Type</label>
+                <select class="form-control" id="currencyType" @bind="currencyType">
+                    <option selected disabled>Select the currency type</option>
+                    <option value="NRS">NRS</option>
+                    <option value="USD">USD</option>
+                    <option value="BGP">BGP</option>
+                    <option value="INRS">INRS</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" @onclick="LoginUser">Login</button>
+        </form>
+
+        <div class="register-link">
+            Don't have an account? <NavLink href="signinpage" Match="NavLinkMatch.All">Register here</NavLink>
+        </div>
+    </div>
+</div>
+
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    .login-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+    .register-link {
+        margin-top: 15px;
+    }
+
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .register-link a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<script>
+    function showAlert(message) {
+        alert(message); // Display the custom message in the alert box
+    }
+</script>
+
+@code {
+}

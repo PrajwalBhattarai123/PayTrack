@@ -1,0 +1,128 @@
+﻿@page "/signinpage"
+@inject NavigationManager Navigation
+@using PayTrack.Models
+@inject IJSRuntime JS
+
+<div class="signup-container">
+    <div class="signup-card">
+        <div class="signup-header">
+            <img src="user-icon.png" alt="User Icon" class="user-icon">
+            <h2>Create Account</h2>
+            <p>Enter your details to get started</p>
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" @bind="first_name">
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" @bind="last_name">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username" @bind="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Create a password" @bind="password">
+            </div>
+
+            <div class="form-group">
+                <label for="balance">Initial Available Balance</label>
+                <input type="number" class="form-control" id="balance" placeholder="Enter initial balance" @bind="initial_available_balance">
+            </div>
+
+            <div class="form-group">
+                <label for="debtBalance">Initial Debt Balance</label>
+                <input type="number" class="form-control" id="debtBalance" placeholder="Enter debt balance" @bind="initial_debt_balance">
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" @onclick="SignInUser">Register</button>
+        </form>
+
+        <div class="signin-link">
+            Already have an account? <a href="#">Sign in</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+    }
+
+    .signup-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        text-align: center;
+    }
+
+    .signup-header {
+        margin-bottom: 20px;
+    }
+
+    .user-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .signin-link {
+        margin-top: 15px;
+    }
+
+    .signin-link a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .signin-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    function showAlert(message) {
+        alert(message); // Display the custom message in the alert box
+    }
+</script>
+
+@code {
+}
